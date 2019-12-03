@@ -18,6 +18,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_nk4gm6kg:snk334ghp
         console.log('Connection failed!');
     });
 app.use(bodyParser.json());
+
 app.use((req,res,next)=>{
 
     res.setHeader('X-Auth-Token', '*');
