@@ -35,6 +35,7 @@ router.post('', async(req,res,next)=>{
         table_no: req.body.table_no,
         seat_no: req.body.seat_no,
         coming: req.body.accountType === 'admin' ? null : req.body.coming,
+        contact: req.body.contact,
         accountType: req.body.accountType,
         companions: req.body.companions
     });
@@ -61,6 +62,7 @@ router.put('/:id', async(req,res,next) => {
         table_no: req.body.table_no,
         seat_no: req.body.seat_no,
         coming: req.body.coming,
+        contact: req.body.contact,
         companions: req.body.companions
     });
 
@@ -124,11 +126,10 @@ router.post('/login', async(req,res,next)=>{
         }
 
         const token = jwt.sign(
-            { username: user.username, userId: user._id},
+            { accountType: user.accountType, userId: user._id, user: user},
                 'JWSECRET',
                 {expiresIn:'1h'}
             );
-
         res.status(200).json({
             accountType: user.accountType,
             user,

@@ -19,12 +19,16 @@ const userSchema = mongoose.Schema({
       type: String,
       required: true
     },
+    contact:{
+      type: String,
+    },
     table_no:{
       type: String,
     },
     seat_no:{
       type: String,
     },
+
     coming: {
       type: String,
       default: 'not confirmed'
