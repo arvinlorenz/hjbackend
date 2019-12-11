@@ -59,6 +59,7 @@ router.put('/:id', async(req,res,next) => {
         _id: req.params.id,
         firstname: req.body.firstname,
         lastname: req.body.lastname,
+        username: req.body.username,
         table_no: req.body.table_no,
         seat_no: req.body.seat_no,
         coming: req.body.coming,
